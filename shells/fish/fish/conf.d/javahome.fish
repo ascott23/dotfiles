@@ -1,0 +1,1 @@
+/Users/ascott/.config/fisherman/javahome/conf.d/javahome.fish

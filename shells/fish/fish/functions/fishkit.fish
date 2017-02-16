@@ -1,0 +1,1 @@
+/Users/ascott/.config/fisherman/fishkit/functions/fishkit.fish

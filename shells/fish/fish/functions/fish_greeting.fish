@@ -1,0 +1,1 @@
+/Users/ascott/.config/fisherman/spaceship/fish_greeting.fish

@@ -1,0 +1,16 @@
+- link:
+    ~/.gitconfig:
+        path:   tools/vcs/git/gitconfig
+        relink: true
+        create: true
+        force:  true
+    ~/.gitignore_global:
+        path:   tools/vcs/git/gitignore_global
+        relink: true
+        create: true
+        force:  true
+    ~/.gitmodules:
+        path:   tools/vcs/git/gitmodules
+        relink: true
+        create: true
+        force:  true

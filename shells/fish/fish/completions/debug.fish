@@ -1,0 +1,1 @@
+/Users/ascott/.config/fisherman/debug/completions/debug.fish

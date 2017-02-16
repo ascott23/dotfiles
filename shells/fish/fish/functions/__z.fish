@@ -1,0 +1,1 @@
+/Users/ascott/.config/fisherman/z/functions/__z.fish

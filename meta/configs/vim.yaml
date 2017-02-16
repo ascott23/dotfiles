@@ -1,0 +1,16 @@
+- link:
+    ~/.vim:
+        path:   editors/vim/vim/
+        relink: true
+        create: true
+        force:  true
+    ~/.vim_runtime:
+        path:   editors/vim/vim_runtime/
+        relink: true
+        create: true
+        force:  true
+    ~/.vimrc:
+        path:   editors/vim/vimrc
+        relink: true
+        create: true
+        force:  true

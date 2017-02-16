@@ -1,0 +1,6 @@
+- link:
+    ~/.config/iTerm2:
+        path:   gui/iTerm2/
+        relink: true
+        create: true
+        force:  true

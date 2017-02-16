@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+set -e
+
+BASE_CONFIG="base"
+CONFIG_SUFFIX=".yaml"
+
+META_DIR="meta"
+CONFIG_DIR="configs"
+PROFILES_DIR="profiles"
+PLUGINS_DIR="plugins"
+
+DOTBOT_DIR="dotbot"
+DOTBOT_BIN="bin/dotbot"
+
+BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+
+cd "${BASE_DIR}"
+git submodule update --init --recursive --remote
+
+
+while IFS= read -r config; do
+    CONFIGS+=" ${config}"
+done < "${META_DIR}/${PROFILES_DIR}/$1"
+
+shift
+
+
+"${BASE_DIR}/${META_DIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASE_DIR}" -c "${META_DIR}/${BASE_CONFIG}${CONFIG_SUFFIX}"
+
+if [ "$(uname)" == "Darwin" ]; then
+   # MacOS plugins
+   echo 'MacOS Plugins'
+   "${BASE_DIR}/${META_DIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" --plugin-dir "${BASE_DIR}/${META_DIR}/${PLUGINS_DIR}/brew" -c "${META_DIR}/${PLUGINS_DIR}/${CONFIG_DIR}/brew${CONFIG_SUFFIX}" "${@}"
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+   # Linux plugins
+   echo 'Tux Plugins'
+   pass
+fi
+
+for config in ${CONFIGS} ${@}; do
+    echo -e "\nConfigure $config"
+    "${BASE_DIR}/${META_DIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASE_DIR}" -c "${META_DIR}/${CONFIG_DIR}/${config}${CONFIG_SUFFIX}"
+done

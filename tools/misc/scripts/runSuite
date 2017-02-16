@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Checking the provided arguments for the script for existence and correctness
+if [ $# -ne 2 ]; then
+	echo "Usage: <suite-file> <program to test>" >&2
+	exit 1
+fi
+
+# Creating the temp file used to store the programs output for .in
+TMPOUT=`mktemp /tmp/tmp.XXXX`
+
+# Loop through the contents of the suite file
+for i in `cat ${1}`
+do	
+	# Checking if the .in and .out files exist and can be used
+	if ! [ -r "${i}.in" ]; then
+		echo "${i}.in either does not exist or is not readable" >&2
+		exit 4
+	elif ! [ -r "${i}.out" ]; then
+		echo "${i}.out either does not exist or is not readable" >&2
+		exit 5
+	fi
+
+	# Run the program on the current input and compare it to the provided output
+	if [ -r "${i}.args" ]; then
+		${2} $(cat "${i}.args")  < "${i}.in" > ${TMPOUT}
+	else
+		${2} < "${i}.in" > ${TMPOUT}
+	fi
+	diff "${i}.out" ${TMPOUT} > /dev/null
+
+	# Check if diff says that the programs output matches the provided and tell
+	# the user if it doesn't match
+	if [ $? -ne 0 ]; then
+		echo Test failed: ${i}
+		echo Input:
+		cat "${i}.in"
+		echo 
+		echo Expected:
+		cat "${i}.out"
+		echo 
+		echo Actual:
+		cat ${TMPOUT}
+		echo
+	fi
+done

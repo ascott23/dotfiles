@@ -1,0 +1,1 @@
+/Users/ascott/.config/fisherman/paths/conf.d/paths.fish

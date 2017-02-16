@@ -1,0 +1,43 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    printf "Usage: <assignment to build for>"
+    exit 1
+fi
+
+cd /Volumes/ascott/cs350/OS161/os161-1.99/kern/conf/
+
+printf "Running: './config ${1}'"
+./config ${1}
+if [ $? -ne 0 ]; then
+    printf "Config failed. Ending."
+    exit 1
+fi
+printf "Config complete\n\n"
+
+cd ../compile/${1}
+
+printf "Running: 'bmake depend'"
+bmake depend
+if [ $? -ne 0 ]; then
+    printf "bmake depend failed. Ending."
+    exit 1
+fi
+printf "bmake depend complete\n\n"
+
+printf "Running: 'bmake'"
+bmake
+if [ $? -ne 0 ]; then
+    printf "bmake failed. Ending."
+    exit 1
+fi
+printf "bmake complete\n\n"
+
+printf "Running: 'bmake install'"
+bmake install
+if [ $? -ne 0 ]; then
+    printf "bmake install failed. Ending."
+    exit 1
+fi
+
+printf "Done\n\n"

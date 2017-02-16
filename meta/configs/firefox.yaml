@@ -1,0 +1,6 @@
+- link:
+    ~/.config/firefox:
+        path:   gui/firefox/
+        relink: true
+        create: true
+        force:  true

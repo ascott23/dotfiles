@@ -1,0 +1,6 @@
+- link:
+    ~/scripts:
+        path:   tools/misc/scripts/
+        relink: true
+        create: true
+        force:  true

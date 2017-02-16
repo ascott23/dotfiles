@@ -1,0 +1,1 @@
+/Users/ascott/.config/fisherman/theme/theme.util.remove.current.fish

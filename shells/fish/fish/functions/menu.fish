@@ -1,0 +1,1 @@
+/Users/ascott/.config/fisherman/menu/menu.fish

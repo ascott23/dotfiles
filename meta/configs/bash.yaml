@@ -1,0 +1,11 @@
+- link:
+    ~/.bashrc:
+        path:   shells/bash/bashrc
+        relink: true
+        create: true
+        force:  true
+    ~/.bash_profile:
+        path:   shells/bash/bash_profile
+        relink: true
+        create: true
+        force:  true

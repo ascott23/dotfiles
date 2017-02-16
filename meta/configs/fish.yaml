@@ -1,0 +1,11 @@
+- link:
+    ~/.config/fish:
+        path:   shells/fish/fish/
+        relink: true
+        create: true
+        force:  true
+    ~/.config/fisherman:
+        path:   shells/fish/fisherman/
+        relink: true
+        create: true
+        force:  true
