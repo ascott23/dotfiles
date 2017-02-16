@@ -1,2 +1,0 @@
-#!/bin/bash
-rsync -rut --exclude='.*' ~/Documents/cs240/ ascott@linux.student.cs.uwaterloo.ca:~/cs240/

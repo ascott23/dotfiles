@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if [ $# -eq 0 ]; then
-    echo "Need something to work with bud"
-    exit
-fi
-
-python "$HOME/scripts/python/${1}.py" 

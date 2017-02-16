@@ -1,3 +1,0 @@
-#!/bin/bash
-ssh ascott@ubuntu1204-002.student.cs.uwaterloo.ca
-hostname
