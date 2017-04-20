@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Goes and adds + commits + pushes any changes made
+# If there's an arg it's added to the commit msg
+# Writes all the installed fisherman plugins to a file
+
+DOT_LOC="${HOME}/dotfiles"
+FISH_LOC="${DOT_LOC}/shells/fish"
+FISHER_LOC="${FISH_LOC}/fisherman"
+PLUGIN_FILE="${FISH_LOC}/plugins"
+
+# Sync fisherman
+echo 'Syncing fisherman'
+${HOME}/scripts/dotfiles/fisher_sync_push
+
+# Sync homebrew
+# if [ "$(uname)" == "Darwin" ]; then
+#    # MacOS plugins
+#    echo 'Syncing homebrew'
+#    ${HOME}/scripts/dotfiles/homebrew_sync_push
+# fi
+
+# Git stuff
+cd ${DOT_LOC}
+
+commit_msg="$(date)"
+
+# Append the commit message
+if [[ "$#" -eq 1 ]]; then
+   commit_msg="${commit_msg} ${1}"
+fi
+
+git add --all
+git commit -m "$commit_msg"
+git push

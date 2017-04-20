@@ -1,0 +1,6 @@
+- link:
+    ~/widgets:
+        path:   gui/widgets/
+        relink: true
+        create: true
+        force:  true

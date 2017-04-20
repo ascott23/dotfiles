@@ -44,6 +44,9 @@
     - gtkmm
     - hashcat
     - highlight
+    - homebrew/dupes/m4
+    - homebrew/dupes/zlib
+    - homebrew/fuse/ntfs-3g
     - htop-osx
     - hub
     - id3tool
@@ -59,7 +62,6 @@
     - libvo-aacenc
     - libvterm
     - libxml2
-    - homebrew/dupes/m4
     - man2html
     - mercurial
     - minizip
@@ -68,7 +70,6 @@
     - msgpack
     - ncmpcpp
     - nmap
-    - homebrew/fuse/ntfs-3g
     - openjpeg
     - perl
     - ponysay
@@ -83,7 +84,6 @@
     - sdl_image
     - sdl_mixer
     - sdl_ttf
-    - homebrew/boneyard/sickrage
     - sl
     - sox
     - speedtest_cli
@@ -104,7 +104,6 @@
     - wxpython
     - x11vnc
     - youtube-dl
-    - homebrew/dupes/zlib
 
 - cask:
     - amethyst

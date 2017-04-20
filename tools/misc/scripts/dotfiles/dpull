@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Goes and pulls + installs dotfiles
+# Any args passed to the install script
+# Installs any missing fisherman plugins
+DOT_LOC="${HOME}/dotfiles"
+GIT_REPO="https://github.com/ascott23/dotfiles.git"
+
+# Git stuff
+cd ${HOME}
+
+if [[ ! -d ${DOT_LOC} ]]; then
+   # Dotfiles dir doesn't exist
+   git clone ${GIT_REPO} ${DOT_LOC}
+fi
+
+cd ${DOT_LOC}
+
+git pull
+
+./install "${@}"
+
+# Sync fisherman
+echo 'Syncing fisherman'
+${HOME}/scripts/dotfiles/fisher_sync_pull
+
+# Sync homebrew
+# if [ "$(uname)" == "Darwin" ]; then
+#    # MacOS plugins
+#    echo 'Syncing homebrew'
+#    ${HOME}/scripts/dotfiles/homebrew_sync_pull
+# fi

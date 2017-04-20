@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Variables
+DOT_LOC="${HOME}/dotfiles"
+FISH_LOC="${DOT_LOC}/shells/fish"
+FISHER_LOC="${FISH_LOC}/fisherman"
+PLUGIN_FILE="${FISH_LOC}/plugins"
+
+# Move to the right location
+cd ${FISHER_LOC}
+
+# Clear the file
+rm ${PLUGIN_FILE}
+
+# For each directory, echo its name to the plugin file
+for i in $(ls -d */);
+do
+   echo ${i%%/} >> ${PLUGIN_FILE}
+done

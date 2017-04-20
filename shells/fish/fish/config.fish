@@ -1,29 +1,39 @@
-# Path to your oh-my-fish.
-# set fish_path $HOME/.oh-my-fish
+###############################################################################
+#
+# Path variable
+#
+###############################################################################
+set PATH $HOME/scripts $PATH
+set PATH $HOME/scripts/dotfiles $PATH
 
-# Base16 Shell
-# if status --is-interactive
-#    eval sh $HOME/.config/base16-shell/scripts/base16-default-dark.sh
-# end
+###############################################################################
+#
+# Globals
+#
+# -x exports to the env, -u makes it universal, and -g makes it global
+#
+###############################################################################
+set -x SVN_EDITOR vim
+set -x EDITOR vim
 
-# Theme
+###############################################################################
+#
+# Theme stuff
+#
+###############################################################################
 set fish_theme spaceship
 
-set PATH $HOME/scripts $PATH
-# set PATH $HOME/.ellipsis/bin $PATH
+# Base16 Shell
+if status --is-interactive
+   eval sh $HOME/.config/base16-shell/scripts/base16-ocean.sh
+end
 
-set -x SVN_EDITOR vi
-set -x EDITOR vi
 
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-fish/plugins/*)
-# Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
-# Example format: set fish_plugins autojump bundler
-
-# Path to your custom folder (default path is $FISH/custom)
-#set fish_custom $HOME/dotfiles/oh-my-fish
-
-# Load oh-my-fish configuration.
-# . $fish_path/oh-my-fish.fish
-
+###############################################################################
+#
+# Other stuff
+#
+###############################################################################
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+set -g fish_user_paths "/usr/local/opt/openssl@1.1/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths

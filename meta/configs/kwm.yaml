@@ -1,0 +1,6 @@
+- link:
+    ~/.kwm:
+        path:   gui/kwm/
+        relink: true
+        create: true
+        force:  true

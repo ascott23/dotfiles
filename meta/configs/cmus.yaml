@@ -1,0 +1,7 @@
+- link:
+    ~/.config/cmus:
+        path:   terminals/cmus/
+        relink: true
+        create: true
+        force:  true
+

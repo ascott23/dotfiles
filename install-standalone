@@ -23,10 +23,11 @@ git submodule update --init --recursive --remote
 
 if [ "$(uname)" == "Darwin" ]; then
    # MacOS plugins
-   "${BASE_DIR}/${META_DIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" --plugin-dir "${BASE_DIR}/${META_DIR}/brew" -c "${META_DIR}/${CONFIG_DIR}/brew${CONFIG_SUFFIX}" "${@}"
+   echo 'MacOS Plugins'
+   "${BASE_DIR}/${META_DIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" --plugin-dir "${BASE_DIR}/${META_DIR}/${PLUGINS_DIR}/brew" -c "${META_DIR}/${PLUGINS_DIR}/${CONFIG_DIR}/brew${CONFIG_SUFFIX}" "${@}"
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
    # Linux plugins
-   local tmp=1
+   echo 'Tux Plugins'
 fi
 
 for config in ${@}; do

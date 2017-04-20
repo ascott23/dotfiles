@@ -9,8 +9,3 @@
         relink: true
         create: true
         force:  true
-    ~/.gitmodules:
-        path:   tools/vcs/git/gitmodules
-        relink: true
-        create: true
-        force:  true

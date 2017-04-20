@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Variables
+DOT_LOC="${HOME}/dotfiles"
+SCRIPTS="${HOME}/scripts"
+DOT_SCRIPTS="${SCRIPTS}/dotfiles"
+
+cd ${DOT_SCRIPTS}
+
+TAP_F="brew_tapped.txt"
+LEAVES_F="brew_leaves.txt"
+CASKS_F="brew_casks.txt"
+
+# We need to tap, install formulas, and install casks
+# First update homebrew so output not corrupted
+brew update &> /dev/null
+
+# Append our taps to the file
+brew tap >> ${TAP_F}
+tapped="$(cat ${TAP_F} | sort | uniq)"
+echo ${tapped} | tr ' ' '\n' 
+
+# Append our leaves to the file
+brew leaves >> ${LEAVES_F}
+leaves="$(cat ${LEAVES_F} | sort | uniq)"
+# echo ${leaves} | tr ' ' '\n' > ${LEAVES_F}
+
+# Append our casks to the file
+sed -e 's/\s\+/\n/g' <(brew cask list) >> ${CASKS_F}
+casks="$(cat ${CASKS_F} | sort | uniq)"
+# echo ${casks} | tr ' ' '\n' > ${CASKS_F}
